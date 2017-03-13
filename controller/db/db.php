@@ -1,21 +1,20 @@
 <?php
-class connection{
-function con($uname, $pw){
-    $servername = "localhost";
-    $username = "$uname";
-    $password = "$pw";
-    
-    // Create connection
-    $conn = new PDO($username, $password, "localhost");
-    // Check connection
-    if ($conn->connect_error)
-    {
-    die("Connection failed: " . $conn->connect_error);
-    }
-    
-    
-    $conn->close();
-    }
+if (!defined("USERNAME")) {
+    define("USERNAME", "root");
+    define("PASSWORD", "");
+    define("SERVER", "localhost");
+    define("DATABASE", "wwm");
+}
+if (isset($_SERVER["HTTP_REFERER"])) {
+    $_SERVER["HTTP_REFERER"] = explode("?", $_SERVER["HTTP_REFERER"])[0];
+}
+
+try {
+    $con = new PDO("mysql:host=" . SERVER . ";dbname=" . DATABASE, USERNAME, PASSWORD);
+    // set the PDO error mode to exception
+    $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    echo "Keine Verbindung zur Datenbank.";
+    exit;
 }
 ?>
-

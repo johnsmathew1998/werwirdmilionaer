@@ -1,7 +1,6 @@
 <?php
 //require "../include/db.php" //Datenbankverbindung
 ?>
-
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 <meta charset="utf-8" />
 <meta http-equiv="language" content="deutsch, de">
@@ -31,6 +30,15 @@
 
     <link href="css/styles.css" rel="stylesheet"/>
 <!--<script src="js/all.controller?<?php echo time(); ?>"></script>-->
+    <script id="sap-ui-bootstrap"
+            src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
+            data-sap-ui-libs="sap.m"
+            data-sap-ui-theme="sap_bluecrystal"
+            data-sap-ui-xx-bindingSyntax="complex"
+            data-sap-ui-preload="async"
+            data-sap-ui-compatVersion="edge"
+            data-sap-ui-resourceroots='{"sap.m.sample.TableBreadcrumb": "./", "sap.ui.demo.mock": "mockdata"}'>
+    </script>
 <?php
 //include "../js/all.php";
 ?>

@@ -4,7 +4,7 @@
     <?php
     require "include/head.php";
     ?>
-    <title>Dashboard</title>
+    <title>Login</title>
 </head>
 <body>
 
@@ -19,7 +19,7 @@
                     <h3 class="panel-title"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</h3>
                 </div>
                 <div class="panel-body">
-                    <form name="login" onsubmit="return checkAndForwardLogin()">
+                    <form name="login" method="post" action="controller/login/login.php">
                         <input type="hidden" name="redirect" value="">
                         <div class="form-group">
                             <label for="username">Benutzername</label>
@@ -33,6 +33,22 @@
                             <i class="fa fa-sign-in" aria-hidden="true"></i> Einloggen
                         </button>
                         <a class="lblnoacc" href="nav/register.php"> Noch kein Account vorhanden? </a>
+                        <br/>
+                        <br/>
+                        <?php
+                        $n = $_GET["n"];
+                        if(isset($_GET["n"])){
+                            if($n=="failed"){
+                                ?>
+                                <div class="alert alert-danger">Benutzer oder Passwort falsch</div>
+                                <?php
+                            }else{
+                        ?>
+                                <div class="alert alert-success">Login Erfolgreich</div>
+                          <?php
+                            }
+                        }
+                        ?>
                     </form>
                 </div>
             </div>

@@ -1,9 +1,3 @@
-<?php
-include "../controller/register/register.php";
-
-$register = new register();
-$register->newregister();
-?>
 <head>
     <?php
     require "../include/head.php";
@@ -22,7 +16,7 @@ $register->newregister();
                     <h3 class="panel-title"><i class="fa fa-sign-in" aria-hidden="true"></i> Registrierung</h3>
                 </div>
                 <div class="panel-body">
-                    <form method="post" action="register.php" >
+                    <form method="post" action="../controller/register/register.php" >
                         <input type="hidden" name="redirect" value="">
                         <div class="form-group">
                             <label for="username">Benutzername</label>
@@ -35,6 +29,18 @@ $register->newregister();
                         <button type="submit" class="btn btn-default">
                             <i class="fa fa-sign-in" aria-hidden="true"></i> Registrieren
                         </button>
+                        <br/>
+                        <br/>
+                        <?php
+                        $n = $_GET["n"];
+                        if(isset($_GET["n"])){
+                            if($n=="error"){
+                                ?>
+                                <div class="alert alert-danger">Benutzer vorhanden</div>
+                        <?php
+                            }
+                        }
+                        ?>
                     </form>
                 </div>
             </div>
